@@ -18,7 +18,7 @@ struct APIService {
         "x-app-key": Constant.nutritionixAppKey
     ]
 
-    func verifyFoodCalories(_ text: String) {
+    static func verifyFoodCalories(_ text: String) {
         Alamofire.request(Constant.nutritionixURL, method: .post, parameters: ["query": text], headers: APIService.headers).validate().responseJSON { response in
             switch response.result {
             case .success(let result):
