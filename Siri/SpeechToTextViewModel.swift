@@ -8,10 +8,13 @@
 
 import UIKit
 import Speech
-
+import Alamofire
 
 struct Constant {
-    static let languageRegion: String = "pt-BR"
+    static let languageRegion: String = "en-US"
+    static let nutritionixAppId: String = "edcff291"
+    static let nutritionixAppKey: String = "8bbd1cac55d208cfff9ab34eadf18650"
+    static let nutritionixURL: String = "https://trackapi.nutritionix.com/v2/natural/nutrients"
 }
 
 protocol SpeechToTextDelegate: class {
@@ -145,8 +148,41 @@ extension SpeechToTextViewModel {
     }
 }
 
+// MARK: - SFSpeechRecognizerDelegate
 extension SpeechToTextViewModel: SFSpeechRecognizerDelegate {
     func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
         delegate?.speechRecognizer(speechRecognizer, availabilityDidChange: available)
+    }
+}
+
+// MARK: - API Service
+extension SpeechToTextViewModel {
+
+    func verifyFoodCalories(_ text: String) {
+        let headers = [
+            "x-app-id": Constant.nutritionixAppId,
+            "x-app-key": Constant.nutritionixAppKey
+        ]
+
+        Alamofire.request(Constant.nutritionixURL, method: .post, parameters: ["query": text], headers: headers).validate().responseJSON { response in
+            switch response.result {
+            case .success(let result):
+                guard let json = result as? [String: Any] else { return }
+                guard let foods = json["foods"] as? [[String: Any]] else { return }
+                for food in foods {
+                    print("\n\n")
+                    print(food["food_name"])
+                    print(food["serving_qty"])
+                    print(food["serving_unit"])
+                    print(food["serving_weight_grams"])
+                    print(food["nf_calories"])
+                    print(food["nf_total_fat"])
+                    print(food["nf_total_carbohydrate"])
+                    print(food["nf_protein"])
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }

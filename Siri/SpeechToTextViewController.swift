@@ -32,6 +32,7 @@ class SpeechToTextViewController: UIViewController, SFSpeechRecognizerDelegate {
             viewModel.stopRecording()
             microphoneButton.isEnabled = false
             microphoneButton.setTitle("Start Recording", for: .normal)
+            viewModel.verifyFoodCalories(textView.text)
         } else {
             viewModel.startRecording()
             microphoneButton.setTitle("Stop Recording", for: .normal)
