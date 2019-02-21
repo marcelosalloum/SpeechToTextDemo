@@ -90,17 +90,11 @@ extension SpeechToTextViewModel {
         // Setup audioSession
         let audioSession = AVAudioSession.sharedInstance()
         do {
-            try audioSession.setCategory(AVAudioSessionCategoryRecord)
-            try audioSession.setMode(AVAudioSessionModeMeasurement)
-            try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
+            try audioSession.setCategory(AVAudioSession.Category.record, mode: AVAudioSession.Mode.measurement)
+            try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         } catch let error {
             print(error.localizedDescription)
             print("audioSession properties weren't set because of an error.")
-        }
-
-        // Unraps inputNode
-        guard let inputNode = audioEngine.inputNode else {
-            fatalError("Audio engine has no input node")
         }
 
         // Setup recognitionRequest
@@ -114,8 +108,8 @@ extension SpeechToTextViewModel {
         recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest, resultHandler: handleRecognitionResult)
 
         // Configures the node and installs the tap
-        let recordingFormat = inputNode.outputFormat(forBus: 0)
-        inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
+        let recordingFormat = audioEngine.inputNode.outputFormat(forBus: 0)
+        audioEngine.inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
             self.recognitionRequest?.append(buffer)
         }
 
@@ -142,7 +136,7 @@ extension SpeechToTextViewModel {
         // Called after the service was stopped
         if error != nil || isFinal {
             audioEngine.stop()
-            audioEngine.inputNode?.removeTap(onBus: 0)
+            audioEngine.inputNode.removeTap(onBus: 0)
             recognitionRequest = nil
             recognitionTask = nil
 
@@ -156,4 +150,3 @@ extension SpeechToTextViewModel: SFSpeechRecognizerDelegate {
         delegate?.speechRecognizer(speechRecognizer, availabilityDidChange: available)
     }
 }
-
