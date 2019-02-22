@@ -20,6 +20,14 @@ class HistoryCollectionViewController: CoordinatedViewController {
         collectionView.delegate = self
         collectionView.dataSource = self
     }
+
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        let middleIndex = Int(viewModel.days.count / 2)
+        let indexPath = IndexPath(row: middleIndex, section: 0)
+        updateIndexPath(indexPath)
+    }
 }
 
 extension HistoryCollectionViewController: UICollectionViewDataSource {
@@ -39,6 +47,11 @@ extension HistoryCollectionViewController: UICollectionViewDelegateFlowLayout {
         return viewControllerSize
     }
 
+    fileprivate func updateIndexPath(_ indexPath: IndexPath) {
+        collectionView.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        self.title = (viewModel.days[indexPath.row]).name
+    }
+
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         // Stop scrollView sliding:
         targetContentOffset.pointee = scrollView.contentOffset
@@ -47,14 +60,12 @@ extension HistoryCollectionViewController: UICollectionViewDelegateFlowLayout {
         let indexOfMajorCell = self.indexOfMajorCell()
 
         let indexPath = IndexPath(row: indexOfMajorCell, section: 0)
-        let collectionViewLayout = self.collectionView.collectionViewLayout
-        collectionViewLayout.collectionView!.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: true)
+        updateIndexPath(indexPath)
     }
 
     private func indexOfMajorCell() -> Int {
-        let collectionViewLayout = self.collectionView.collectionViewLayout
         let itemWidth = self.view.frame.size.width
-        let proportionalOffset = collectionViewLayout.collectionView!.contentOffset.x / itemWidth
+        let proportionalOffset = collectionView.contentOffset.x / itemWidth
         let index = Int(round(proportionalOffset))
         let safeIndex = max(0, min(viewModel.days.count - 1, index))
         return safeIndex
