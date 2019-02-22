@@ -8,6 +8,7 @@
 
 import UIKit
 import Speech
+import AVFoundation
 
 class SpeechToTextViewController: UIViewController, SFSpeechRecognizerDelegate {
 
@@ -34,6 +35,10 @@ class SpeechToTextViewController: UIViewController, SFSpeechRecognizerDelegate {
             microphoneButton.setTitle("Start Recording", for: .normal)
             viewModel.verifyFoodCalories(textView.text)
         } else {
+//            let utterance = AVSpeechUtterance(string: "Ok, o que você comeu?")
+//            utterance.voice = AVSpeechSynthesisVoice(language: Constant.languageRegion)
+//            let synthesizer = AVSpeechSynthesizer()
+//            synthesizer.speak(utterance)
             viewModel.startRecording()
             microphoneButton.setTitle("Stop Recording", for: .normal)
         }
