@@ -157,6 +157,7 @@ extension SpeechToTextViewModel {
 
     func verifyFoodCalories(_ text: String) {
         APIService.verifyFoodCalories(text, context: ezCoreData.privateThreadContext) { result in
+            self.ezCoreData.privateThreadContext.saveContextToStore()
             switch result {
             case .success(let value):
                 print(value)
