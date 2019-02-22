@@ -15,9 +15,9 @@ class EntriesViewModel: NSObject {
     var date: Date!
 
     func updateFoodList() {
-        let predicate = NSPredicate(format: "date = \(date.toString(dateFormat: "yyyy-MM-dd"))")
+        let pred = NSPredicate(format: "date >= %@ AND date <= %@", date.firstHour as NSDate, date.lastHour as NSDate)
         do {
-            foodList = try Food.readAll(context: ezCoreData.mainThreadContext)
+            foodList = try Food.readAll(predicate: pred, context: ezCoreData.mainThreadContext)
             print(foodList)
         } catch let error {
             print(error)

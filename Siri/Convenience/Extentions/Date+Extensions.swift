@@ -29,6 +29,14 @@ extension Date {
         return Calendar.current.date(bySettingHour: 12, minute: 0, second: 0, of: self)!
     }
 
+    var firstHour: Date {
+        return Calendar.current.date(bySettingHour: 0, minute: 0, second: 1, of: self)!
+    }
+
+    var lastHour: Date {
+        return Calendar.current.date(bySettingHour: 23, minute: 59, second: 59, of: self)!
+    }
+
     var month: Int {
         return Calendar.current.component(.month, from: self)
     }
