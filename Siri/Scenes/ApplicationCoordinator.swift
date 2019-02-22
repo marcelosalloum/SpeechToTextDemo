@@ -38,4 +38,9 @@ class ApplicationCoordinator: Coordinator {
         let coordinator = SpeechToTexCoordinator(presenter: rootViewController, ezCoreData: ezCoreData)
         startCoordinator(coordinator)
     }
+
+    fileprivate func setupHistoryCollectionCoordinator() {
+        let coordinator = HistoryCollectionViewCoordinator(presenter: rootViewController, ezCoreData: ezCoreData)
+        startCoordinator(coordinator)
+    }
 }

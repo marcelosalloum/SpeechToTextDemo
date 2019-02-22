@@ -20,6 +20,12 @@
 		1F7D40542220117100C4B575 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D40532220117100C4B575 /* Constants.swift */; };
 		1F7D40552220131900C4B575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805027EA1D389E5700CE3F1F /* AppDelegate.swift */; };
 		1F7D40582220138900C4B575 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D40572220138900C4B575 /* main.swift */; };
+		1F7D405B222018B000C4B575 /* CalendarHistory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1F7D405A222018B000C4B575 /* CalendarHistory.storyboard */; };
+		1F7D405D22201A4000C4B575 /* HistoryCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D405C22201A4000C4B575 /* HistoryCollectionViewController.swift */; };
+		1F7D405F22201AEE00C4B575 /* HistoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D405E22201AEE00C4B575 /* HistoryCollectionViewCell.swift */; };
+		1F7D406122201CB100C4B575 /* HistoryCollectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D406022201CB100C4B575 /* HistoryCollectionCoordinator.swift */; };
+		1F7D4063222027FC00C4B575 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D4062222027FC00C4B575 /* HistoryViewModel.swift */; };
+		1F7D40672220292200C4B575 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D40662220292200C4B575 /* Date+Extensions.swift */; };
 		2F7D4AE7C67D8165940FEB70 /* Pods_Siri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE43C5E211D5538FA4A4AFB1 /* Pods_Siri.framework */; };
 		805027ED1D389E5700CE3F1F /* SpeechToTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805027EC1D389E5700CE3F1F /* SpeechToTextViewController.swift */; };
 		805027F01D389E5700CE3F1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 805027EE1D389E5700CE3F1F /* Main.storyboard */; };
@@ -40,6 +46,12 @@
 		1F7D40502220103700C4B575 /* UITableViewCell+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Reusable.swift"; sourceTree = "<group>"; };
 		1F7D40532220117100C4B575 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		1F7D40572220138900C4B575 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		1F7D405A222018B000C4B575 /* CalendarHistory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = CalendarHistory.storyboard; sourceTree = "<group>"; };
+		1F7D405C22201A4000C4B575 /* HistoryCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewController.swift; sourceTree = "<group>"; };
+		1F7D405E22201AEE00C4B575 /* HistoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		1F7D406022201CB100C4B575 /* HistoryCollectionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCollectionCoordinator.swift; sourceTree = "<group>"; };
+		1F7D4062222027FC00C4B575 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
+		1F7D40662220292200C4B575 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
 		498665CFDA44CB14F1A952F9 /* Pods-Siri.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Siri.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Siri/Pods-Siri.debug.xcconfig"; sourceTree = "<group>"; };
 		805027E71D389E5700CE3F1F /* Siri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Siri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		805027EA1D389E5700CE3F1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +98,7 @@
 			isa = PBXGroup;
 			children = (
 				1F7D404D22200FFF00C4B575 /* Base Coordinator */,
+				1F7D40592220189600C4B575 /* Calendar History */,
 				1F7D404A22200F4E00C4B575 /* SpeechToText */,
 				1F7D404622200E6000C4B575 /* ApplicationCoordinator.swift */,
 			);
@@ -129,6 +142,34 @@
 			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		1F7D40592220189600C4B575 /* Calendar History */ = {
+			isa = PBXGroup;
+			children = (
+				1F7D405A222018B000C4B575 /* CalendarHistory.storyboard */,
+				1F7D406022201CB100C4B575 /* HistoryCollectionCoordinator.swift */,
+				1F7D405C22201A4000C4B575 /* HistoryCollectionViewController.swift */,
+				1F7D405E22201AEE00C4B575 /* HistoryCollectionViewCell.swift */,
+				1F7D4062222027FC00C4B575 /* HistoryViewModel.swift */,
+			);
+			path = "Calendar History";
+			sourceTree = "<group>";
+		};
+		1F7D40642220290800C4B575 /* Convenience */ = {
+			isa = PBXGroup;
+			children = (
+				1F7D40652220290F00C4B575 /* Extentions */,
+			);
+			path = Convenience;
+			sourceTree = "<group>";
+		};
+		1F7D40652220290F00C4B575 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				1F7D40662220292200C4B575 /* Date+Extensions.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 		7B980FA629B36BF64A197690 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -160,6 +201,7 @@
 		805027E91D389E5700CE3F1F /* Siri */ = {
 			isa = PBXGroup;
 			children = (
+				1F7D40642220290800C4B575 /* Convenience */,
 				1F17B864221F3DD000C807F8 /* Models */,
 				1F7D40522220116100C4B575 /* Resources */,
 				1F17B861221F3D6100C807F8 /* Services */,
@@ -245,6 +287,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				805027F51D389E5700CE3F1F /* LaunchScreen.storyboard in Resources */,
+				1F7D405B222018B000C4B575 /* CalendarHistory.storyboard in Resources */,
 				805027F21D389E5700CE3F1F /* Assets.xcassets in Resources */,
 				805027F01D389E5700CE3F1F /* Main.storyboard in Resources */,
 			);
@@ -313,14 +356,19 @@
 				805027ED1D389E5700CE3F1F /* SpeechToTextViewController.swift in Sources */,
 				1F17B867221F407A00C807F8 /* Nutrition.xcdatamodeld in Sources */,
 				1F17B86B221F416200C807F8 /* Food+CoreDataProperties.swift in Sources */,
+				1F7D405F22201AEE00C4B575 /* HistoryCollectionViewCell.swift in Sources */,
 				1F5D3CE8221EBB8800704C49 /* SpeechToTextViewModel.swift in Sources */,
 				1F17B86A221F416200C807F8 /* Food+CoreDataClass.swift in Sources */,
 				1F7D404F2220101300C4B575 /* UIViewController+Storyboard.swift in Sources */,
 				1F17B863221F3D7500C807F8 /* APIService.swift in Sources */,
 				1F7D40542220117100C4B575 /* Constants.swift in Sources */,
+				1F7D40672220292200C4B575 /* Date+Extensions.swift in Sources */,
+				1F7D4063222027FC00C4B575 /* HistoryViewModel.swift in Sources */,
 				1F7D40582220138900C4B575 /* main.swift in Sources */,
 				1F7D40552220131900C4B575 /* AppDelegate.swift in Sources */,
 				1F7D40512220103700C4B575 /* UITableViewCell+Reusable.swift in Sources */,
+				1F7D406122201CB100C4B575 /* HistoryCollectionCoordinator.swift in Sources */,
+				1F7D405D22201A4000C4B575 /* HistoryCollectionViewController.swift in Sources */,
 				1F7D404822200E6000C4B575 /* ApplicationCoordinator.swift in Sources */,
 				1F7D404C22200F6700C4B575 /* SpeechToTextCoordinator.swift in Sources */,
 				1F7D404922200E6000C4B575 /* Coordinator.swift in Sources */,

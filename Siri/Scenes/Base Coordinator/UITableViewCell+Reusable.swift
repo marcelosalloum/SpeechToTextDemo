@@ -16,6 +16,8 @@ extension ReusableObject {
     }
 }
 
+extension UICollectionViewCell: ReusableObject { }
+
 extension UITableViewCell: ReusableObject { }
 
 extension UIViewController: ReusableObject { }
@@ -23,5 +25,11 @@ extension UIViewController: ReusableObject { }
 extension ReusableObject where Self: UITableViewCell {
     static func dequeuedReusableCell(_ tableView: UITableView, indexPath: IndexPath) -> Self {
         return tableView.dequeueReusableCell(withIdentifier: self.reuseIdentifier, for: indexPath) as! Self
+    }
+}
+
+extension ReusableObject where Self: UICollectionViewCell {
+    static func dequeuedReusableCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> Self {
+        return collectionView.dequeueReusableCell(withReuseIdentifier: self.reuseIdentifier, for: indexPath) as! Self
     }
 }
