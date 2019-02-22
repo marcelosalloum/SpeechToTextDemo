@@ -8,7 +8,7 @@
 
 import Foundation
 import Alamofire
-
+import CoreData
 
 // MARK: - API Service
 struct APIService {
@@ -18,19 +18,21 @@ struct APIService {
         "x-app-key": Constant.nutritionixAppKey
     ]
 
-    static func verifyFoodCalories(_ text: String) {
+    static func verifyFoodCalories(_ text: String, context: NSManagedObjectContext, _ completion: @escaping (DefaultResult<[Food]>) -> Void) {
         Alamofire.request(Constant.nutritionixURL, method: .post, parameters: ["query": text], headers: APIService.headers).validate().responseJSON { response in
+
             switch response.result {
             case .success(let result):
                 guard let json = result as? [String: Any] else { return }
                 guard let foods = json["foods"] as? [[String: Any]] else { return }
-                Food.importList(foods, completion: { importResult in
+                Food.importList(foods, backgroundContext: context, completion: { importResult in
+
                     switch importResult {
                     case .success(result: let foodList):
-                        print(foodList ?? "")
+                        completion(DefaultResult.success(result: foodList))
 
                     case .failure(error: let error):
-                        print(error)
+                        completion(DefaultResult.failure(error: error))
                     }
                 })
 

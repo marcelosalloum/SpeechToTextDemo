@@ -10,12 +10,12 @@ import UIKit
 import Speech
 import AVFoundation
 
-class SpeechToTextViewController: UIViewController, SFSpeechRecognizerDelegate {
+class SpeechToTextViewController: CoordinatedViewController, SFSpeechRecognizerDelegate {
 
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var microphoneButton: UIButton!
 
-    let viewModel = SpeechToTextViewModel()
+    var viewModel: SpeechToTextViewModel!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +24,6 @@ class SpeechToTextViewController: UIViewController, SFSpeechRecognizerDelegate {
         microphoneButton.isEnabled = false
 
         // viewModel
-        viewModel.delegate = self
         viewModel.setupSpeechRecognizer()
     }
 

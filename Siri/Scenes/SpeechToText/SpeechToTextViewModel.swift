@@ -8,15 +8,7 @@
 
 import UIKit
 import Speech
-import Alamofire
-
-struct Constant {
-    static let modelName: String = "Nutrition"
-    static let languageRegion: String = "en-US"
-    static let nutritionixAppId: String = "edcff291"
-    static let nutritionixAppKey: String = "8bbd1cac55d208cfff9ab34eadf18650"
-    static let nutritionixURL: String = "https://trackapi.nutritionix.com/v2/natural/nutrients"
-}
+import EZCoreData
 
 protocol SpeechToTextDelegate: class {
     func didStartTranscriptingSpeech()
@@ -34,6 +26,8 @@ class SpeechToTextViewModel: NSObject {
     fileprivate let audioEngine = AVAudioEngine()
     fileprivate var recognitionRequest: SFSpeechAudioBufferRecognitionRequest?
     fileprivate var recognitionTask: SFSpeechRecognitionTask?
+
+    var ezCoreData: EZCoreData!
 
     weak var delegate: SpeechToTextDelegate?
 
@@ -104,7 +98,9 @@ extension SpeechToTextViewModel {
         // Setup recognitionRequest
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         guard let recognitionRequest = recognitionRequest else {
-            fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
+            print()
+            return
+//            Swift.fatalError("Unable to create an SFSpeechAudioBufferRecognitionRequest object")
         }
         recognitionRequest.shouldReportPartialResults = true
 
@@ -160,6 +156,13 @@ extension SpeechToTextViewModel: SFSpeechRecognizerDelegate {
 extension SpeechToTextViewModel {
 
     func verifyFoodCalories(_ text: String) {
-        APIService.verifyFoodCalories(text)
+        APIService.verifyFoodCalories(text, context: ezCoreData.privateThreadContext) { result in
+            switch result {
+            case .success(let value):
+                print(value)
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
 }

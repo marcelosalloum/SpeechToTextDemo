@@ -12,8 +12,15 @@
 		1F17B86A221F416200C807F8 /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F17B868221F416200C807F8 /* Food+CoreDataClass.swift */; };
 		1F17B86B221F416200C807F8 /* Food+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F17B869221F416200C807F8 /* Food+CoreDataProperties.swift */; };
 		1F5D3CE8221EBB8800704C49 /* SpeechToTextViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F5D3CE7221EBB8800704C49 /* SpeechToTextViewModel.swift */; };
+		1F7D404822200E6000C4B575 /* ApplicationCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D404622200E6000C4B575 /* ApplicationCoordinator.swift */; };
+		1F7D404922200E6000C4B575 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D404722200E6000C4B575 /* Coordinator.swift */; };
+		1F7D404C22200F6700C4B575 /* SpeechToTextCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D404B22200F6700C4B575 /* SpeechToTextCoordinator.swift */; };
+		1F7D404F2220101300C4B575 /* UIViewController+Storyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D404E2220101300C4B575 /* UIViewController+Storyboard.swift */; };
+		1F7D40512220103700C4B575 /* UITableViewCell+Reusable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D40502220103700C4B575 /* UITableViewCell+Reusable.swift */; };
+		1F7D40542220117100C4B575 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D40532220117100C4B575 /* Constants.swift */; };
+		1F7D40552220131900C4B575 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805027EA1D389E5700CE3F1F /* AppDelegate.swift */; };
+		1F7D40582220138900C4B575 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D40572220138900C4B575 /* main.swift */; };
 		2F7D4AE7C67D8165940FEB70 /* Pods_Siri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE43C5E211D5538FA4A4AFB1 /* Pods_Siri.framework */; };
-		805027EB1D389E5700CE3F1F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805027EA1D389E5700CE3F1F /* AppDelegate.swift */; };
 		805027ED1D389E5700CE3F1F /* SpeechToTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805027EC1D389E5700CE3F1F /* SpeechToTextViewController.swift */; };
 		805027F01D389E5700CE3F1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 805027EE1D389E5700CE3F1F /* Main.storyboard */; };
 		805027F21D389E5700CE3F1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 805027F11D389E5700CE3F1F /* Assets.xcassets */; };
@@ -26,6 +33,13 @@
 		1F17B868221F416200C807F8 /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataClass.swift"; sourceTree = "<group>"; };
 		1F17B869221F416200C807F8 /* Food+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1F5D3CE7221EBB8800704C49 /* SpeechToTextViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechToTextViewModel.swift; sourceTree = "<group>"; };
+		1F7D404622200E6000C4B575 /* ApplicationCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ApplicationCoordinator.swift; sourceTree = "<group>"; };
+		1F7D404722200E6000C4B575 /* Coordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		1F7D404B22200F6700C4B575 /* SpeechToTextCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToTextCoordinator.swift; sourceTree = "<group>"; };
+		1F7D404E2220101300C4B575 /* UIViewController+Storyboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIViewController+Storyboard.swift"; sourceTree = "<group>"; };
+		1F7D40502220103700C4B575 /* UITableViewCell+Reusable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITableViewCell+Reusable.swift"; sourceTree = "<group>"; };
+		1F7D40532220117100C4B575 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		1F7D40572220138900C4B575 /* main.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		498665CFDA44CB14F1A952F9 /* Pods-Siri.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Siri.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Siri/Pods-Siri.debug.xcconfig"; sourceTree = "<group>"; };
 		805027E71D389E5700CE3F1F /* Siri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Siri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		805027EA1D389E5700CE3F1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -71,10 +85,48 @@
 		1F7D404522200D9200C4B575 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
-				805027EC1D389E5700CE3F1F /* SpeechToTextViewController.swift */,
-				1F5D3CE7221EBB8800704C49 /* SpeechToTextViewModel.swift */,
+				1F7D404D22200FFF00C4B575 /* Base Coordinator */,
+				1F7D404A22200F4E00C4B575 /* SpeechToText */,
+				1F7D404622200E6000C4B575 /* ApplicationCoordinator.swift */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		1F7D404A22200F4E00C4B575 /* SpeechToText */ = {
+			isa = PBXGroup;
+			children = (
+				805027EC1D389E5700CE3F1F /* SpeechToTextViewController.swift */,
+				1F5D3CE7221EBB8800704C49 /* SpeechToTextViewModel.swift */,
+				1F7D404B22200F6700C4B575 /* SpeechToTextCoordinator.swift */,
+			);
+			path = SpeechToText;
+			sourceTree = "<group>";
+		};
+		1F7D404D22200FFF00C4B575 /* Base Coordinator */ = {
+			isa = PBXGroup;
+			children = (
+				1F7D404722200E6000C4B575 /* Coordinator.swift */,
+				1F7D404E2220101300C4B575 /* UIViewController+Storyboard.swift */,
+				1F7D40502220103700C4B575 /* UITableViewCell+Reusable.swift */,
+			);
+			path = "Base Coordinator";
+			sourceTree = "<group>";
+		};
+		1F7D40522220116100C4B575 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				805027F11D389E5700CE3F1F /* Assets.xcassets */,
+				1F7D40532220117100C4B575 /* Constants.swift */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		1F7D40562220136600C4B575 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1F7D40572220138900C4B575 /* main.swift */,
+			);
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		7B980FA629B36BF64A197690 /* Pods */ = {
@@ -90,6 +142,7 @@
 			isa = PBXGroup;
 			children = (
 				805027E91D389E5700CE3F1F /* Siri */,
+				1F7D40562220136600C4B575 /* Supporting Files */,
 				805027E81D389E5700CE3F1F /* Products */,
 				7B980FA629B36BF64A197690 /* Pods */,
 				DA516E17EAF70BCB5629D580 /* Frameworks */,
@@ -108,11 +161,11 @@
 			isa = PBXGroup;
 			children = (
 				1F17B864221F3DD000C807F8 /* Models */,
+				1F7D40522220116100C4B575 /* Resources */,
 				1F17B861221F3D6100C807F8 /* Services */,
 				1F7D404522200D9200C4B575 /* Scenes */,
 				805027EA1D389E5700CE3F1F /* AppDelegate.swift */,
 				805027EE1D389E5700CE3F1F /* Main.storyboard */,
-				805027F11D389E5700CE3F1F /* Assets.xcassets */,
 				805027F31D389E5700CE3F1F /* LaunchScreen.storyboard */,
 				805027F61D389E5700CE3F1F /* Info.plist */,
 			);
@@ -210,6 +263,8 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Siri/Pods-Siri-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Bagel/Bagel.framework",
+				"${BUILT_PRODUCTS_DIR}/CocoaAsyncSocket/CocoaAsyncSocket.framework",
 				"${BUILT_PRODUCTS_DIR}/EZCoreData/EZCoreData.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -217,6 +272,8 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bagel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CocoaAsyncSocket.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EZCoreData.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -258,8 +315,15 @@
 				1F17B86B221F416200C807F8 /* Food+CoreDataProperties.swift in Sources */,
 				1F5D3CE8221EBB8800704C49 /* SpeechToTextViewModel.swift in Sources */,
 				1F17B86A221F416200C807F8 /* Food+CoreDataClass.swift in Sources */,
+				1F7D404F2220101300C4B575 /* UIViewController+Storyboard.swift in Sources */,
 				1F17B863221F3D7500C807F8 /* APIService.swift in Sources */,
-				805027EB1D389E5700CE3F1F /* AppDelegate.swift in Sources */,
+				1F7D40542220117100C4B575 /* Constants.swift in Sources */,
+				1F7D40582220138900C4B575 /* main.swift in Sources */,
+				1F7D40552220131900C4B575 /* AppDelegate.swift in Sources */,
+				1F7D40512220103700C4B575 /* UITableViewCell+Reusable.swift in Sources */,
+				1F7D404822200E6000C4B575 /* ApplicationCoordinator.swift in Sources */,
+				1F7D404C22200F6700C4B575 /* SpeechToTextCoordinator.swift in Sources */,
+				1F7D404922200E6000C4B575 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
