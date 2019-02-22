@@ -70,4 +70,3 @@ extension SpeechToTextViewController: SpeechToTextDelegate {
         microphoneButton.isEnabled = available
     }
 }
-

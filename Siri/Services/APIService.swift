@@ -18,8 +18,13 @@ struct APIService {
         "x-app-key": Constant.nutritionixAppKey
     ]
 
-    static func verifyFoodCalories(_ text: String, context: NSManagedObjectContext, _ completion: @escaping (DefaultResult<[Food]>) -> Void) {
-        Alamofire.request(Constant.nutritionixURL, method: .post, parameters: ["query": text], headers: APIService.headers).validate().responseJSON { response in
+    static func verifyFoodCalories(_ text: String,
+                                   context: NSManagedObjectContext,
+                                   _ completion: @escaping (DefaultResult<[Food]>) -> Void) {
+        Alamofire.request(Constant.nutritionixURL,
+                          method: .post,
+                          parameters: ["query": text],
+                          headers: APIService.headers).validate().responseJSON { response in
 
             switch response.result {
             case .success(let result):

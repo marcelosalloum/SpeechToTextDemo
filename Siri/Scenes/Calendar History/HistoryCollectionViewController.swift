@@ -35,14 +35,17 @@ extension HistoryCollectionViewController: UICollectionViewDataSource {
         return viewModel.days.count
     }
 
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+    func collectionView(_ collectionView: UICollectionView,
+                        cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = HistoryCollectionViewCell.dequeuedReusableCell(collectionView, indexPath: indexPath)
         return cell
     }
 }
 
 extension HistoryCollectionViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        sizeForItemAt indexPath: IndexPath) -> CGSize {
         let viewControllerSize = self.view.frame.size
         return viewControllerSize
     }
@@ -52,7 +55,9 @@ extension HistoryCollectionViewController: UICollectionViewDelegateFlowLayout {
         self.title = (viewModel.days[indexPath.row]).name
     }
 
-    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView,
+                                   withVelocity velocity: CGPoint,
+                                   targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         // Stop scrollView sliding:
         targetContentOffset.pointee = scrollView.contentOffset
 

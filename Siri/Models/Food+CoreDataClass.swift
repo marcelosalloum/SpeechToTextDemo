@@ -16,7 +16,7 @@ public class Food: NSManagedObject {
 }
 
 extension Food {
-    public override func populateFromJSON(_ json: [String : Any], context: NSManagedObjectContext) {
+    public override func populateFromJSON(_ json: [String: Any], context: NSManagedObjectContext) {
         if let foodName = json["food_name"] as? String {
             self.foodName = foodName
         }

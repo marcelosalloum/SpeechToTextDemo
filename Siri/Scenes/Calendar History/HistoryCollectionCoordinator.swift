@@ -27,13 +27,13 @@ class HistoryCollectionViewCoordinator: Coordinator {
 //        viewModel.coordinator = self
 
         // View Controller:
-        guard let historyCollectionViewController = HistoryCollectionViewController.fromStoryboard(.calendarHistory) else { return }
-        historyCollectionViewController.viewModel = viewModel
+        guard let historyCollectionVC = HistoryCollectionViewController.fromStoryboard(.calendarHistory) else { return }
+        historyCollectionVC.viewModel = viewModel
 //        viewModel.delegate = historyCollectionViewController
 
         // Present View Controller:
-        presenter.pushViewController(historyCollectionViewController, animated: true)
-        setDeallocallable(with: historyCollectionViewController)
-        self.historyCollectionViewController = historyCollectionViewController
+        presenter.pushViewController(historyCollectionVC, animated: true)
+        setDeallocallable(with: historyCollectionVC)
+        self.historyCollectionViewController = historyCollectionVC
     }
 }

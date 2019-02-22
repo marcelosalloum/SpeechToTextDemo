@@ -11,5 +11,4 @@ import UIKit
 class HistoryCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
-    
 }

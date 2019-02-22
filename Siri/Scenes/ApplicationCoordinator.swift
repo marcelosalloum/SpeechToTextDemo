@@ -26,7 +26,8 @@ class ApplicationCoordinator: Coordinator {
         // Init Core Data
 
         // SetUp Welcome Coordinator
-        setupSpeechToTextCoordinator()
+//        setupSpeechToTextCoordinator()
+        setupHistoryCollectionCoordinator()
     }
 
     override func start() {

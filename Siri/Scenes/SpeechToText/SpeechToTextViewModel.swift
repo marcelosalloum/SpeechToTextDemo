@@ -105,11 +105,12 @@ extension SpeechToTextViewModel {
         recognitionRequest.shouldReportPartialResults = true
 
         // !!! This is the imprtant part, where the speech will be transcrpted to text:
-        recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest, resultHandler: handleRecognitionResult)
+        recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest,
+                                                           resultHandler: handleRecognitionResult)
 
         // Configures the node and installs the tap
         let recordingFormat = audioEngine.inputNode.outputFormat(forBus: 0)
-        audioEngine.inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, when) in
+        audioEngine.inputNode.installTap(onBus: 0, bufferSize: 1024, format: recordingFormat) { (buffer, _) in
             self.recognitionRequest?.append(buffer)
         }
 
