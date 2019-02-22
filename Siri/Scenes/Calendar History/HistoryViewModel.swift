@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import EZCoreData
 
 class HistoryViewModel: NSObject {
+
+    var ezCoreData: EZCoreData!
 
     weak var coordinator: HistoryCoordinatorDelegate?
 
@@ -21,6 +24,19 @@ class HistoryViewModel: NSObject {
     func userDidSelectAddButton(_ day: Day) {
         coordinator?.userDidSelectAddButton(day.date)
     }
+
+    lazy var childViewModels: [EntriesViewModel] = {
+        var children = [EntriesViewModel]()
+
+        for day in days {
+            let viewModel = EntriesViewModel()
+            viewModel.ezCoreData = ezCoreData
+            viewModel.date = day.date
+            children.append(viewModel)
+        }
+
+        return children
+    }()
 }
 
 struct Day {

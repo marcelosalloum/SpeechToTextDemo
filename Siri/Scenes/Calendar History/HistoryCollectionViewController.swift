@@ -28,13 +28,16 @@ class HistoryCollectionViewController: CoordinatedViewController {
             let indexPath = IndexPath(row: middleIndex, section: 0)
             updateIndexPath(indexPath)
         }
-
         super.viewDidAppear(animated)
     }
 
     @IBAction func rightBarButtonItemClicked(_ sender: Any) {
         let indexPath = collectionView.indexPathsForVisibleItems[0]
         viewModel.userDidSelectAddButton(viewModel.days[indexPath.row])
+    }
+
+    @IBAction func refreshButtonClicked(_ sender: Any) {
+        self.collectionView.reloadData()
     }
 }
 
@@ -46,6 +49,8 @@ extension HistoryCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView,
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = HistoryCollectionViewCell.dequeuedReusableCell(collectionView, indexPath: indexPath)
+        cell.viewModel = viewModel.childViewModels[indexPath.row]
+        cell.updateContent()
         return cell
     }
 }

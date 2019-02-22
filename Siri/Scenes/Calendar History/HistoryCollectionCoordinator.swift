@@ -29,8 +29,8 @@ class HistoryCollectionViewCoordinator: Coordinator {
     override func start() {
         // View Model
         let viewModel = HistoryViewModel()
+        viewModel.ezCoreData = ezCoreData
         viewModel.coordinator = self
-//        viewModel.ezCoreData = ezCoreData
 
         // View Controller:
         guard let historyCollectionVC = HistoryCollectionViewController.fromStoryboard(.calendarHistory) else { return }

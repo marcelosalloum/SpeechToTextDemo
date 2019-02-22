@@ -7,7 +7,7 @@ target 'Siri' do
 
   # Pods for Siri
   pod 'Alamofire', '4.8.1'
-  pod 'EZCoreData', '0.6.0'
+  pod 'EZCoreData', '0.6.1'
   pod 'Bagel', '~>  1.3.2', :configurations => ['Debug']    # Debugging network requests
 
 end

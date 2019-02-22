@@ -9,11 +9,13 @@
 import UIKit
 import Speech
 import EZCoreData
+import CoreData
 
 class SpeechToTextViewModel: NSObject {
 
     var ezCoreData: EZCoreData!
     var date: Date!
+    var foodToAdd = [Food]()
 
     var speechToTextService = SpeechToTextService()
 
@@ -22,6 +24,10 @@ class SpeechToTextViewModel: NSObject {
     var isRecording: Bool {
         return speechToTextService.isRecording
     }
+
+    lazy var localContext: NSManagedObjectContext = {
+        self.ezCoreData.privateThreadContext
+    }()
 
     func setupSpeechRecognizer() {
         speechToTextService.delegate = self
@@ -34,6 +40,10 @@ class SpeechToTextViewModel: NSObject {
 
     func startRecording() {
         speechToTextService.startRecording()
+    }
+
+    func closeButtonPressed() {
+        localContext.saveContextToStore()
     }
 }
 
@@ -69,17 +79,16 @@ extension SpeechToTextViewModel: SpeechToTextDelegate {
 // MARK: - API Service
 extension SpeechToTextViewModel {
 
-    func verifyFoodCalories(_ text: String, date: Date) {
+    func verifyFoodCalories(_ text: String) {
+
         APIService.verifyFoodCalories(text, context: ezCoreData.privateThreadContext) { result in
-            self.ezCoreData.privateThreadContext.saveContextToStore()
             switch result {
             case .success(let value):
-                if let foodList = value {
-                    for food in foodList {
-                        food.date = date
-                        print(value!)
-                    }
+                guard let foodList = value else { return }
+                for food in foodList {
+                    food.date = self.date
                 }
+                self.foodToAdd.append(contentsOf: foodList)
             case .failure(let error):
                 print(error)
             }

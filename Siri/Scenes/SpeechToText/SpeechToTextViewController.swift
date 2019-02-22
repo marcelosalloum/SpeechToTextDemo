@@ -33,7 +33,7 @@ class SpeechToTextViewController: CoordinatedViewController, SFSpeechRecognizerD
                 self.viewModel.stopRecording()
                 self.microphoneButton.isEnabled = false
                 self.microphoneButton.setImage(UIImage(named: "icn_mic_on"), for: .normal)
-                self.viewModel.verifyFoodCalories(self.textView.text, date: Date())
+                self.viewModel.verifyFoodCalories(self.textView.text)
             } else {
                 self.viewModel.startRecording()
                 self.microphoneButton.setImage(UIImage(named: "icn_mic_off"), for: .normal)
@@ -42,6 +42,7 @@ class SpeechToTextViewController: CoordinatedViewController, SFSpeechRecognizerD
     }
 
     @IBAction func closeButtonClicked(_ sender: UIButton) {
+        viewModel.closeButtonPressed()
         sender.animateTouchDown {
             self.dismiss(animated: true)
         }
@@ -55,7 +56,7 @@ extension SpeechToTextViewController: SpeechToTextDelegate {
     }
 
     func didStartTranscriptingSpeech() {
-        textView.text = "Say something, I'm listening!"
+        textView.text = "Tell me about your meal..."
     }
 
     func failedToStartTranscriptingSpeech(_ error: Error) {

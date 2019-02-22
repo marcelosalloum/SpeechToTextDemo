@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1F17546D22205E6000DC5F7B /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F17546C22205E6000DC5F7B /* UIView+Animation.swift */; };
+		1F17547022206D4700DC5F7B /* EntriesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F17546F22206D4700DC5F7B /* EntriesViewModel.swift */; };
+		1F17547222206EF400DC5F7B /* EntriesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F17547122206EF400DC5F7B /* EntriesTableViewCell.swift */; };
 		1F17B863221F3D7500C807F8 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F17B862221F3D7500C807F8 /* APIService.swift */; };
 		1F17B867221F407A00C807F8 /* Nutrition.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1F17B865221F407A00C807F8 /* Nutrition.xcdatamodeld */; };
 		1F17B86A221F416200C807F8 /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F17B868221F416200C807F8 /* Food+CoreDataClass.swift */; };
@@ -37,6 +39,8 @@
 
 /* Begin PBXFileReference section */
 		1F17546C22205E6000DC5F7B /* UIView+Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
+		1F17546F22206D4700DC5F7B /* EntriesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesViewModel.swift; sourceTree = "<group>"; };
+		1F17547122206EF400DC5F7B /* EntriesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntriesTableViewCell.swift; sourceTree = "<group>"; };
 		1F17B862221F3D7500C807F8 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		1F17B866221F407A00C807F8 /* Nutrition.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Nutrition.xcdatamodel; sourceTree = "<group>"; };
 		1F17B868221F416200C807F8 /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -80,6 +84,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F17546E22206C7D00DC5F7B /* DailyEntries */ = {
+			isa = PBXGroup;
+			children = (
+				1F7D405E22201AEE00C4B575 /* HistoryCollectionViewCell.swift */,
+				1F17546F22206D4700DC5F7B /* EntriesViewModel.swift */,
+				1F17547122206EF400DC5F7B /* EntriesTableViewCell.swift */,
+			);
+			path = DailyEntries;
+			sourceTree = "<group>";
+		};
 		1F17B861221F3D6100C807F8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
@@ -155,7 +169,7 @@
 				1F7D406022201CB100C4B575 /* HistoryCollectionCoordinator.swift */,
 				1F7D405C22201A4000C4B575 /* HistoryCollectionViewController.swift */,
 				1F7D4062222027FC00C4B575 /* HistoryViewModel.swift */,
-				1F7D405E22201AEE00C4B575 /* HistoryCollectionViewCell.swift */,
+				1F17546E22206C7D00DC5F7B /* DailyEntries */,
 			);
 			path = "Calendar History";
 			sourceTree = "<group>";
@@ -385,6 +399,7 @@
 				1F5D3CE8221EBB8800704C49 /* SpeechToTextViewModel.swift in Sources */,
 				1F17546D22205E6000DC5F7B /* UIView+Animation.swift in Sources */,
 				1F7D406A222031CB00C4B575 /* SpeechToTextService.swift in Sources */,
+				1F17547022206D4700DC5F7B /* EntriesViewModel.swift in Sources */,
 				1F17B86A221F416200C807F8 /* Food+CoreDataClass.swift in Sources */,
 				1F7D404F2220101300C4B575 /* UIViewController+Storyboard.swift in Sources */,
 				1F17B863221F3D7500C807F8 /* APIService.swift in Sources */,
@@ -397,6 +412,7 @@
 				1F7D406122201CB100C4B575 /* HistoryCollectionCoordinator.swift in Sources */,
 				1F7D405D22201A4000C4B575 /* HistoryCollectionViewController.swift in Sources */,
 				1F7D404822200E6000C4B575 /* ApplicationCoordinator.swift in Sources */,
+				1F17547222206EF400DC5F7B /* EntriesTableViewCell.swift in Sources */,
 				1F7D404C22200F6700C4B575 /* SpeechToTextCoordinator.swift in Sources */,
 				1F7D404922200E6000C4B575 /* Coordinator.swift in Sources */,
 			);
