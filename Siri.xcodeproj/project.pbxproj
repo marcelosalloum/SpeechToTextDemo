@@ -26,6 +26,7 @@
 		1F7D406122201CB100C4B575 /* HistoryCollectionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D406022201CB100C4B575 /* HistoryCollectionCoordinator.swift */; };
 		1F7D4063222027FC00C4B575 /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D4062222027FC00C4B575 /* HistoryViewModel.swift */; };
 		1F7D40672220292200C4B575 /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D40662220292200C4B575 /* Date+Extensions.swift */; };
+		1F7D406A222031CB00C4B575 /* SpeechToTextService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D4069222031CB00C4B575 /* SpeechToTextService.swift */; };
 		2F7D4AE7C67D8165940FEB70 /* Pods_Siri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE43C5E211D5538FA4A4AFB1 /* Pods_Siri.framework */; };
 		805027ED1D389E5700CE3F1F /* SpeechToTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805027EC1D389E5700CE3F1F /* SpeechToTextViewController.swift */; };
 		805027F01D389E5700CE3F1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 805027EE1D389E5700CE3F1F /* Main.storyboard */; };
@@ -52,6 +53,7 @@
 		1F7D406022201CB100C4B575 /* HistoryCollectionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HistoryCollectionCoordinator.swift; sourceTree = "<group>"; };
 		1F7D4062222027FC00C4B575 /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		1F7D40662220292200C4B575 /* Date+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extensions.swift"; sourceTree = "<group>"; };
+		1F7D4069222031CB00C4B575 /* SpeechToTextService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeechToTextService.swift; sourceTree = "<group>"; };
 		498665CFDA44CB14F1A952F9 /* Pods-Siri.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Siri.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Siri/Pods-Siri.debug.xcconfig"; sourceTree = "<group>"; };
 		805027E71D389E5700CE3F1F /* Siri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Siri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		805027EA1D389E5700CE3F1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -79,6 +81,7 @@
 		1F17B861221F3D6100C807F8 /* Services */ = {
 			isa = PBXGroup;
 			children = (
+				1F7D4069222031CB00C4B575 /* SpeechToTextService.swift */,
 				1F17B862221F3D7500C807F8 /* APIService.swift */,
 			);
 			path = Services;
@@ -377,6 +380,7 @@
 				1F17B86B221F416200C807F8 /* Food+CoreDataProperties.swift in Sources */,
 				1F7D405F22201AEE00C4B575 /* HistoryCollectionViewCell.swift in Sources */,
 				1F5D3CE8221EBB8800704C49 /* SpeechToTextViewModel.swift in Sources */,
+				1F7D406A222031CB00C4B575 /* SpeechToTextService.swift in Sources */,
 				1F17B86A221F416200C807F8 /* Food+CoreDataClass.swift in Sources */,
 				1F7D404F2220101300C4B575 /* UIViewController+Storyboard.swift in Sources */,
 				1F17B863221F3D7500C807F8 /* APIService.swift in Sources */,
