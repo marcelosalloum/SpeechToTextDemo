@@ -24,5 +24,6 @@ extension Food {
     @NSManaged public var totalFat: Double
     @NSManaged public var totalCarbohydrate: Double
     @NSManaged public var protein: Double
+    @NSManaged public var date: Date?
 
 }

@@ -13,21 +13,27 @@ import CoreData
 class ApplicationCoordinator: Coordinator {
     let window: UIWindow
     var ezCoreData: EZCoreData
+    var speechToTextService: SpeechToTextService
     let rootViewController: UINavigationController
 
     init(window: UIWindow) {
         // Init Values
         self.window = window
         rootViewController = UINavigationController()
+
+        // EZCoreData
         ezCoreData = EZCoreData()
         ezCoreData.setupPersistence(Constant.modelName) // Initialize Core Data
+
+        // SpeechToTextService
+        speechToTextService = SpeechToTextService()
 
         super.init()
         // Init Core Data
 
         // SetUp Welcome Coordinator
-        setupSpeechToTextCoordinator()
-//        setupHistoryCollectionCoordinator()
+//        setupSpeechToTextCoordinator()
+        setupHistoryCollectionCoordinator()
     }
 
     override func start() {
@@ -41,7 +47,9 @@ class ApplicationCoordinator: Coordinator {
     }
 
     fileprivate func setupHistoryCollectionCoordinator() {
-        let coordinator = HistoryCollectionViewCoordinator(presenter: rootViewController, ezCoreData: ezCoreData)
+        let coordinator = HistoryCollectionViewCoordinator(presenter: rootViewController,
+                                                           ezCoreData: ezCoreData,
+                                                           speechToTextService: speechToTextService)
         startCoordinator(coordinator)
     }
 }

@@ -12,12 +12,14 @@ import EZCoreData
 class HistoryCollectionViewCoordinator: Coordinator {
     private let presenter: UINavigationController
     private var ezCoreData: EZCoreData
+    private var speechToTextService: SpeechToTextService
 
     private weak var historyCollectionViewController: HistoryCollectionViewController?
 
-    init(presenter: UINavigationController, ezCoreData: EZCoreData) {
+    init(presenter: UINavigationController, ezCoreData: EZCoreData, speechToTextService: SpeechToTextService) {
         self.presenter = presenter
         self.ezCoreData = ezCoreData
+        self.speechToTextService = speechToTextService
     }
 
     override func start() {

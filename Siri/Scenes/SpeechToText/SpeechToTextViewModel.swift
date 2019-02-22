@@ -68,12 +68,17 @@ extension SpeechToTextViewModel: SpeechToTextDelegate {
 // MARK: - API Service
 extension SpeechToTextViewModel {
 
-    func verifyFoodCalories(_ text: String) {
+    func verifyFoodCalories(_ text: String, date: Date) {
         APIService.verifyFoodCalories(text, context: ezCoreData.privateThreadContext) { result in
             self.ezCoreData.privateThreadContext.saveContextToStore()
             switch result {
             case .success(let value):
-                print(value!)
+                if let foodList = value {
+                    for food in foodList {
+                        food.date = date
+                        print(value!)
+                    }
+                }
             case .failure(let error):
                 print(error)
             }

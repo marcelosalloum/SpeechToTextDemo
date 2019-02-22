@@ -32,7 +32,7 @@ class SpeechToTextViewController: CoordinatedViewController, SFSpeechRecognizerD
             viewModel.stopRecording()
             microphoneButton.isEnabled = false
             microphoneButton.setTitle("Start Recording", for: .normal)
-            viewModel.verifyFoodCalories(textView.text)
+            viewModel.verifyFoodCalories(textView.text, date: Date())
         } else {
 //            let utterance = AVSpeechUtterance(string: "Ok, o que você comeu?")
 //            utterance.voice = AVSpeechSynthesisVoice(language: Constant.languageRegion)
