@@ -30,13 +30,12 @@ class SpeechToTexCoordinator: Coordinator {
 //        viewModel.coordinator = self
 
         // View Controller:
-        guard let speechToTextViewController = SpeechToTextViewController.fromStoryboard(.main) else { return }
+        guard let speechToTextViewController = SpeechToTextViewController.fromStoryboard(.speechToText) else { return }
         speechToTextViewController.viewModel = viewModel
         viewModel.delegate = speechToTextViewController
 
         // Present View Controller:
-//        presenter.present(speechToTextViewController, animated: true)
-        presenter.pushViewController(speechToTextViewController, animated: true)
+        presenter.present(speechToTextViewController, animated: true)
         setDeallocallable(with: speechToTextViewController)
         self.speechToTextViewController = speechToTextViewController
     }

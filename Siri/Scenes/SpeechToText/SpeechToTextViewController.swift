@@ -27,19 +27,23 @@ class SpeechToTextViewController: CoordinatedViewController, SFSpeechRecognizerD
         viewModel.setupSpeechRecognizer()
     }
 
-    @IBAction func microphoneTapped(_ sender: AnyObject) {
-        if viewModel.isRecording {
-            viewModel.stopRecording()
-            microphoneButton.isEnabled = false
-            microphoneButton.setTitle("Start Recording", for: .normal)
-            viewModel.verifyFoodCalories(textView.text, date: Date())
-        } else {
-//            let utterance = AVSpeechUtterance(string: "Ok, o que você comeu?")
-//            utterance.voice = AVSpeechSynthesisVoice(language: Constant.languageRegion)
-//            let synthesizer = AVSpeechSynthesizer()
-//            synthesizer.speak(utterance)
-            viewModel.startRecording()
-            microphoneButton.setTitle("Stop Recording", for: .normal)
+    @IBAction func microphoneTapped(_ sender: UIButton) {
+        sender.animateTouchDown {
+            if self.viewModel.isRecording {
+                self.viewModel.stopRecording()
+                self.microphoneButton.isEnabled = false
+                self.microphoneButton.setImage(UIImage(named: "icn_mic_on"), for: .normal)
+                self.viewModel.verifyFoodCalories(self.textView.text, date: Date())
+            } else {
+                self.viewModel.startRecording()
+                self.microphoneButton.setImage(UIImage(named: "icn_mic_off"), for: .normal)
+            }
+        }
+    }
+
+    @IBAction func closeButtonClicked(_ sender: UIButton) {
+        sender.animateTouchDown {
+            self.dismiss(animated: true)
         }
     }
 }

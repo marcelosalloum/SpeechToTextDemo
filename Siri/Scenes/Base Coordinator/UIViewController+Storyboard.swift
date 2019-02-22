@@ -19,6 +19,6 @@ extension ReusableObject where Self: UIViewController {
 }
 
 enum StoryboardName: String {
-    case main = "Main"
+    case speechToText = "SpeechToText"
     case calendarHistory = "CalendarHistory"
 }

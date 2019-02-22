@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F17546D22205E6000DC5F7B /* UIView+Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F17546C22205E6000DC5F7B /* UIView+Animation.swift */; };
 		1F17B863221F3D7500C807F8 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F17B862221F3D7500C807F8 /* APIService.swift */; };
 		1F17B867221F407A00C807F8 /* Nutrition.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1F17B865221F407A00C807F8 /* Nutrition.xcdatamodeld */; };
 		1F17B86A221F416200C807F8 /* Food+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F17B868221F416200C807F8 /* Food+CoreDataClass.swift */; };
@@ -29,12 +30,13 @@
 		1F7D406A222031CB00C4B575 /* SpeechToTextService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F7D4069222031CB00C4B575 /* SpeechToTextService.swift */; };
 		2F7D4AE7C67D8165940FEB70 /* Pods_Siri.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE43C5E211D5538FA4A4AFB1 /* Pods_Siri.framework */; };
 		805027ED1D389E5700CE3F1F /* SpeechToTextViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 805027EC1D389E5700CE3F1F /* SpeechToTextViewController.swift */; };
-		805027F01D389E5700CE3F1F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 805027EE1D389E5700CE3F1F /* Main.storyboard */; };
+		805027F01D389E5700CE3F1F /* SpeechToText.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 805027EE1D389E5700CE3F1F /* SpeechToText.storyboard */; };
 		805027F21D389E5700CE3F1F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 805027F11D389E5700CE3F1F /* Assets.xcassets */; };
 		805027F51D389E5700CE3F1F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 805027F31D389E5700CE3F1F /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F17546C22205E6000DC5F7B /* UIView+Animation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Animation.swift"; sourceTree = "<group>"; };
 		1F17B862221F3D7500C807F8 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		1F17B866221F407A00C807F8 /* Nutrition.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Nutrition.xcdatamodel; sourceTree = "<group>"; };
 		1F17B868221F416200C807F8 /* Food+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Food+CoreDataClass.swift"; sourceTree = "<group>"; };
@@ -58,7 +60,7 @@
 		805027E71D389E5700CE3F1F /* Siri.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Siri.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		805027EA1D389E5700CE3F1F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		805027EC1D389E5700CE3F1F /* SpeechToTextViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeechToTextViewController.swift; sourceTree = "<group>"; };
-		805027EF1D389E5700CE3F1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		805027EF1D389E5700CE3F1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/SpeechToText.storyboard; sourceTree = "<group>"; };
 		805027F11D389E5700CE3F1F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		805027F41D389E5700CE3F1F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		805027F61D389E5700CE3F1F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -111,9 +113,10 @@
 		1F7D404A22200F4E00C4B575 /* SpeechToText */ = {
 			isa = PBXGroup;
 			children = (
+				805027EE1D389E5700CE3F1F /* SpeechToText.storyboard */,
+				1F7D404B22200F6700C4B575 /* SpeechToTextCoordinator.swift */,
 				805027EC1D389E5700CE3F1F /* SpeechToTextViewController.swift */,
 				1F5D3CE7221EBB8800704C49 /* SpeechToTextViewModel.swift */,
-				1F7D404B22200F6700C4B575 /* SpeechToTextCoordinator.swift */,
 			);
 			path = SpeechToText;
 			sourceTree = "<group>";
@@ -169,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				1F7D40662220292200C4B575 /* Date+Extensions.swift */,
+				1F17546C22205E6000DC5F7B /* UIView+Animation.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -210,7 +214,6 @@
 				1F17B861221F3D6100C807F8 /* Services */,
 				1F7D404522200D9200C4B575 /* Scenes */,
 				805027EA1D389E5700CE3F1F /* AppDelegate.swift */,
-				805027EE1D389E5700CE3F1F /* Main.storyboard */,
 				805027F31D389E5700CE3F1F /* LaunchScreen.storyboard */,
 				805027F61D389E5700CE3F1F /* Info.plist */,
 			);
@@ -293,7 +296,7 @@
 				805027F51D389E5700CE3F1F /* LaunchScreen.storyboard in Resources */,
 				1F7D405B222018B000C4B575 /* CalendarHistory.storyboard in Resources */,
 				805027F21D389E5700CE3F1F /* Assets.xcassets in Resources */,
-				805027F01D389E5700CE3F1F /* Main.storyboard in Resources */,
+				805027F01D389E5700CE3F1F /* SpeechToText.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -380,6 +383,7 @@
 				1F17B86B221F416200C807F8 /* Food+CoreDataProperties.swift in Sources */,
 				1F7D405F22201AEE00C4B575 /* HistoryCollectionViewCell.swift in Sources */,
 				1F5D3CE8221EBB8800704C49 /* SpeechToTextViewModel.swift in Sources */,
+				1F17546D22205E6000DC5F7B /* UIView+Animation.swift in Sources */,
 				1F7D406A222031CB00C4B575 /* SpeechToTextService.swift in Sources */,
 				1F17B86A221F416200C807F8 /* Food+CoreDataClass.swift in Sources */,
 				1F7D404F2220101300C4B575 /* UIViewController+Storyboard.swift in Sources */,
@@ -401,12 +405,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		805027EE1D389E5700CE3F1F /* Main.storyboard */ = {
+		805027EE1D389E5700CE3F1F /* SpeechToText.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				805027EF1D389E5700CE3F1F /* Base */,
 			);
-			name = Main.storyboard;
+			name = SpeechToText.storyboard;
 			sourceTree = "<group>";
 		};
 		805027F31D389E5700CE3F1F /* LaunchScreen.storyboard */ = {
