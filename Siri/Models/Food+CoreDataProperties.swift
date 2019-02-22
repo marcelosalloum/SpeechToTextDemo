@@ -17,13 +17,13 @@ extension Food {
         return NSFetchRequest<Food>(entityName: "Food")
     }
 
-    @NSManaged public var servingQty: Float
-    @NSManaged public var servingWeightGrams: Float
+    @NSManaged public var servingQty: Double
+    @NSManaged public var servingWeightGrams: Double
     @NSManaged public var foodName: String?
     @NSManaged public var servingUnit: String?
-    @NSManaged public var calories: Float
-    @NSManaged public var totalFat: Float
-    @NSManaged public var totalCarbohydrate: Float
-    @NSManaged public var protein: Float
+    @NSManaged public var calories: Double
+    @NSManaged public var totalFat: Double
+    @NSManaged public var totalCarbohydrate: Double
+    @NSManaged public var protein: Double
 
 }

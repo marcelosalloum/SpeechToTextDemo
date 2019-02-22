@@ -11,6 +11,7 @@ import Speech
 import Alamofire
 
 struct Constant {
+    static let modelName: String = "Nutrition"
     static let languageRegion: String = "en-US"
     static let nutritionixAppId: String = "edcff291"
     static let nutritionixAppKey: String = "8bbd1cac55d208cfff9ab34eadf18650"

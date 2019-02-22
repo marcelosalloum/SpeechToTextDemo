@@ -24,17 +24,16 @@ struct APIService {
             case .success(let result):
                 guard let json = result as? [String: Any] else { return }
                 guard let foods = json["foods"] as? [[String: Any]] else { return }
-                for food in foods {
-                    print("\n\n")
-                    print(food["food_name"])
-                    print(food["serving_qty"])
-                    print(food["serving_unit"])
-                    print(food["serving_weight_grams"])
-                    print(food["nf_calories"])
-                    print(food["nf_total_fat"])
-                    print(food["nf_total_carbohydrate"])
-                    print(food["nf_protein"])
-                }
+                Food.importList(foods, completion: { importResult in
+                    switch importResult {
+                    case .success(result: let foodList):
+                        print(foodList ?? "")
+
+                    case .failure(error: let error):
+                        print(error)
+                    }
+                })
+
             case .failure(let error):
                 print(error)
             }
