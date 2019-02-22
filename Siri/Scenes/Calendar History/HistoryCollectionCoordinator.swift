@@ -9,6 +9,10 @@
 import UIKit
 import EZCoreData
 
+protocol HistoryCoordinatorDelegate: class {
+    func userDidSelectAddButton(_ date: Date)
+}
+
 class HistoryCollectionViewCoordinator: Coordinator {
     private let presenter: UINavigationController
     private var ezCoreData: EZCoreData
@@ -25,8 +29,8 @@ class HistoryCollectionViewCoordinator: Coordinator {
     override func start() {
         // View Model
         let viewModel = HistoryViewModel()
+        viewModel.coordinator = self
 //        viewModel.ezCoreData = ezCoreData
-//        viewModel.coordinator = self
 
         // View Controller:
         guard let historyCollectionVC = HistoryCollectionViewController.fromStoryboard(.calendarHistory) else { return }
@@ -37,5 +41,12 @@ class HistoryCollectionViewCoordinator: Coordinator {
         presenter.pushViewController(historyCollectionVC, animated: true)
         setDeallocallable(with: historyCollectionVC)
         self.historyCollectionViewController = historyCollectionVC
+    }
+}
+
+extension HistoryCollectionViewCoordinator: HistoryCoordinatorDelegate {
+    func userDidSelectAddButton(_ date: Date) {
+        let coordinator = SpeechToTexCoordinator(presenter: presenter, ezCoreData: ezCoreData, date: date)
+        startCoordinator(coordinator)
     }
 }

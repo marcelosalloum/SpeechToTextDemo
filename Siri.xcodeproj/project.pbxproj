@@ -151,8 +151,8 @@
 				1F7D405A222018B000C4B575 /* CalendarHistory.storyboard */,
 				1F7D406022201CB100C4B575 /* HistoryCollectionCoordinator.swift */,
 				1F7D405C22201A4000C4B575 /* HistoryCollectionViewController.swift */,
-				1F7D405E22201AEE00C4B575 /* HistoryCollectionViewCell.swift */,
 				1F7D4062222027FC00C4B575 /* HistoryViewModel.swift */,
+				1F7D405E22201AEE00C4B575 /* HistoryCollectionViewCell.swift */,
 			);
 			path = "Calendar History";
 			sourceTree = "<group>";

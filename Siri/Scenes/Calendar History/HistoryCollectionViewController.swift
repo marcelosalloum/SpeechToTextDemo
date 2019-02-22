@@ -11,6 +11,7 @@ import UIKit
 class HistoryCollectionViewController: CoordinatedViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
 
     var viewModel: HistoryViewModel!
 
@@ -22,11 +23,18 @@ class HistoryCollectionViewController: CoordinatedViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+        if self.isBeingPresented || self.isMovingToParent {
+            let middleIndex = Int(viewModel.days.count / 2)
+            let indexPath = IndexPath(row: middleIndex, section: 0)
+            updateIndexPath(indexPath)
+        }
 
-        let middleIndex = Int(viewModel.days.count / 2)
-        let indexPath = IndexPath(row: middleIndex, section: 0)
-        updateIndexPath(indexPath)
+        super.viewDidAppear(animated)
+    }
+
+    @IBAction func rightBarButtonItemClicked(_ sender: Any) {
+        let indexPath = collectionView.indexPathsForVisibleItems[0]
+        viewModel.userDidSelectAddButton(viewModel.days[indexPath.row])
     }
 }
 

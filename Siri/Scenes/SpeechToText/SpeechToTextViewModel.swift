@@ -13,6 +13,7 @@ import EZCoreData
 class SpeechToTextViewModel: NSObject {
 
     var ezCoreData: EZCoreData!
+    var date: Date!
 
     var speechToTextService = SpeechToTextService()
 

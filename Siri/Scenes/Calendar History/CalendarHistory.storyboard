@@ -90,9 +90,16 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="jZm-Uu-WNk"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Today" id="Aus-VP-U4Y"/>
+                    <navigationItem key="navigationItem" title="Today" id="Aus-VP-U4Y">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="cpj-Cz-a6i">
+                            <connections>
+                                <action selector="rightBarButtonItemClicked:" destination="DfW-mh-jFR" id="k9J-Fw-F5W"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="Qa4-mw-n9p" id="bZN-8W-SK5"/>
+                        <outlet property="rightBarButtonItem" destination="cpj-Cz-a6i" id="zJ9-nB-ZIZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWp-dT-hOp" userLabel="First Responder" sceneMemberID="firstResponder"/>

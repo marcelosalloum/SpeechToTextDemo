@@ -41,10 +41,10 @@ class ApplicationCoordinator: Coordinator {
         window.makeKeyAndVisible()
     }
 
-    fileprivate func setupSpeechToTextCoordinator() {
-        let coordinator = SpeechToTexCoordinator(presenter: rootViewController, ezCoreData: ezCoreData)
-        startCoordinator(coordinator)
-    }
+//    fileprivate func setupSpeechToTextCoordinator() {
+//        let coordinator = SpeechToTexCoordinator(presenter: rootViewController, ezCoreData: ezCoreData, date: Date())
+//        startCoordinator(coordinator)
+//    }
 
     fileprivate func setupHistoryCollectionCoordinator() {
         let coordinator = HistoryCollectionViewCoordinator(presenter: rootViewController,
