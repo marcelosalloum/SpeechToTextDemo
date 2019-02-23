@@ -23,7 +23,7 @@ class SpeechToTextViewModel: NSObject {
     private var speechToTextService = SpeechToTextService()
 
     private lazy var localContext: NSManagedObjectContext = {
-        self.ezCoreData.privateThreadContext
+        self.ezCoreData.newPrivateContext()
     }()
 
     var isRecording: Bool {
