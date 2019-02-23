@@ -9,11 +9,13 @@
 import UIKit
 
 class HistoryCollectionViewCell: UICollectionViewCell {
+    // MARK: - Injected Dependecies
     @IBOutlet weak var headerView: UIView!
     @IBOutlet weak var tableView: UITableView!
 
     var viewModel: EntriesViewModel!
 
+    // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -32,6 +34,7 @@ class HistoryCollectionViewCell: UICollectionViewCell {
     }
 }
 
+// MARK: - DataSource
 extension HistoryCollectionViewCell: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return viewModel.foodList.count
@@ -40,11 +43,12 @@ extension HistoryCollectionViewCell: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = EntriesTableViewCell.dequeuedReusableCell(tableView, indexPath: indexPath)
         let food = viewModel.foodList[indexPath.row]
-        cell.textLabel?.text = food.foodName
+        cell.textLabel?.text = "\(String(describing: food.foodName!))     Cal: \(food.calories)"
         return cell
     }
 }
 
+// MARK: - Delegate
 extension HistoryCollectionViewCell: UITableViewDelegate {
 
 }

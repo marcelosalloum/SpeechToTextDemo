@@ -9,16 +9,14 @@
 import UIKit
 import EZCoreData
 
-protocol HistoryCoordinatorDelegate: class {
-    func userDidSelectAddButton(_ date: Date)
-}
-
 class HistoryCollectionViewCoordinator: Coordinator {
+    // MARK: - ViewController
+    private weak var historyCollectionViewController: HistoryCollectionViewController?
+
+    // MARK: - Injected dependencies
     private let presenter: UINavigationController
     private var ezCoreData: EZCoreData
     private var speechToTextService: SpeechToTextService
-
-    private weak var historyCollectionViewController: HistoryCollectionViewController?
 
     init(presenter: UINavigationController, ezCoreData: EZCoreData, speechToTextService: SpeechToTextService) {
         self.presenter = presenter
@@ -26,6 +24,7 @@ class HistoryCollectionViewCoordinator: Coordinator {
         self.speechToTextService = speechToTextService
     }
 
+    // MARK: - Default Start
     override func start() {
         // View Model
         let viewModel = HistoryViewModel()
@@ -35,13 +34,18 @@ class HistoryCollectionViewCoordinator: Coordinator {
         // View Controller:
         guard let historyCollectionVC = HistoryCollectionViewController.fromStoryboard(.calendarHistory) else { return }
         historyCollectionVC.viewModel = viewModel
-//        viewModel.delegate = historyCollectionViewController
+        // viewModel.delegate = historyCollectionVC
 
         // Present View Controller:
         presenter.pushViewController(historyCollectionVC, animated: true)
         setDeallocallable(with: historyCollectionVC)
         self.historyCollectionViewController = historyCollectionVC
     }
+}
+
+// MARK: - HistoryCoordinatorDelegate
+protocol HistoryCoordinatorDelegate: class {
+    func userDidSelectAddButton(_ date: Date)
 }
 
 extension HistoryCollectionViewCoordinator: HistoryCoordinatorDelegate {

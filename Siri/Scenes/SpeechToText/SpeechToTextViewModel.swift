@@ -13,22 +13,26 @@ import CoreData
 
 class SpeechToTextViewModel: NSObject {
 
+    // MARK: - Injected Dependencies
     var ezCoreData: EZCoreData!
     var date: Date!
-    var foodToAdd = [Food]()
-
-    var speechToTextService = SpeechToTextService()
-
     weak var delegate: SpeechToTextDelegate?
+
+    // MARK: - Local Instances
+    private var foodToAdd = [Food]()
+    private var speechToTextService = SpeechToTextService()
+
+    private lazy var localContext: NSManagedObjectContext = {
+        self.ezCoreData.privateThreadContext
+    }()
 
     var isRecording: Bool {
         return speechToTextService.isRecording
     }
+}
 
-    lazy var localContext: NSManagedObjectContext = {
-        self.ezCoreData.privateThreadContext
-    }()
-
+// MARK: - ViewController
+extension SpeechToTextViewModel {
     func setupSpeechRecognizer() {
         speechToTextService.delegate = self
         speechToTextService.requestSpeechAuthorization()
@@ -41,7 +45,10 @@ class SpeechToTextViewModel: NSObject {
     func startRecording() {
         speechToTextService.startRecording()
     }
+}
 
+// MARK: - User Interaction
+extension SpeechToTextViewModel {
     func closeButtonPressed() {
         localContext.saveContextToStore()
     }

@@ -3,12 +3,12 @@ PODS:
   - Bagel (1.3.2):
     - CocoaAsyncSocket
   - CocoaAsyncSocket (7.6.3)
-  - EZCoreData (0.6.1)
+  - EZCoreData (0.6.2)
 
 DEPENDENCIES:
   - Alamofire (= 4.8.1)
   - Bagel (~> 1.3.2)
-  - EZCoreData (= 0.6.1)
+  - EZCoreData (= 0.6.2)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
@@ -21,8 +21,8 @@ SPEC CHECKSUMS:
   Alamofire: 16ce2c353fb72865124ddae8a57c5942388f4f11
   Bagel: 199e0105ac694d6eee9db54dd006c940da6ce81b
   CocoaAsyncSocket: eafaa68a7e0ec99ead0a7b35015e0bf25d2c8987
-  EZCoreData: e912c1a5acdb9958106787a9e7a5e1f7d8906e64
+  EZCoreData: 86ed1e8f6f8d5097ab238cfb8b7e218751958fe1
 
-PODFILE CHECKSUM: 2dd3d2ff3a5599d8ea6e391e9373627bf7f0cc8e
+PODFILE CHECKSUM: 3197e5f28212c31a1ae93b92549d292b1e355642
 
 COCOAPODS: 1.5.3

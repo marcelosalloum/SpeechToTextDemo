@@ -10,11 +10,13 @@ import UIKit
 import EZCoreData
 
 class SpeechToTexCoordinator: Coordinator {
+    // MARK: - ViewController
+    private weak var speechToTextViewController: SpeechToTextViewController?
+
+    // MARK: - Injected Dependencies
     private let presenter: UINavigationController
     private var ezCoreData: EZCoreData
     private var date: Date
-
-    private weak var speechToTextViewController: SpeechToTextViewController?
 
     init(presenter: UINavigationController, ezCoreData: EZCoreData, date: Date) {
         self.presenter = presenter
@@ -22,12 +24,13 @@ class SpeechToTexCoordinator: Coordinator {
         self.date = date
     }
 
+    // MARK: - Regular Start
     override func start() {
         // View Model
         let viewModel = SpeechToTextViewModel()
         viewModel.ezCoreData = ezCoreData
         viewModel.date = date
-//        viewModel.coordinator = self
+        // viewModel.coordinator = self
 
         // View Controller:
         guard let speechToTextViewController = SpeechToTextViewController.fromStoryboard(.speechToText) else { return }

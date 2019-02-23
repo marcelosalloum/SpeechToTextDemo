@@ -10,9 +10,12 @@ import Foundation
 import EZCoreData
 
 class EntriesViewModel: NSObject {
+    // MARK: - Injected Dependencies
     var ezCoreData: EZCoreData!
-    var foodList = [Food]()
     var date: Date!
+
+    // MARK: - DataSource
+    var foodList = [Food]()
 
     func updateFoodList() {
         let pred = NSPredicate(format: "date >= %@ AND date <= %@", date.firstHour as NSDate, date.lastHour as NSDate)

@@ -11,19 +11,17 @@ import EZCoreData
 
 class HistoryViewModel: NSObject {
 
+    // MARK: - Injected Dependencies
     var ezCoreData: EZCoreData!
 
     weak var coordinator: HistoryCoordinatorDelegate?
 
+    // MARK: - Data source
     let days = [
         Day(date: Date.yesterday, name: "Yesterday"),
         Day(date: Date(), name: "Today"),
         Day(date: Date.tomorrow, name: "Tomorrow")
     ]
-
-    func userDidSelectAddButton(_ day: Day) {
-        coordinator?.userDidSelectAddButton(day.date)
-    }
 
     lazy var childViewModels: [EntriesViewModel] = {
         var children = [EntriesViewModel]()
@@ -37,6 +35,13 @@ class HistoryViewModel: NSObject {
 
         return children
     }()
+}
+
+// MARK: - ViewController
+extension HistoryViewModel {
+    func userDidSelectAddButton(_ day: Day) {
+        coordinator?.userDidSelectAddButton(day.date)
+    }
 }
 
 struct Day {

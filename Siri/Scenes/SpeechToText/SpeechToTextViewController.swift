@@ -12,11 +12,12 @@ import AVFoundation
 
 class SpeechToTextViewController: CoordinatedViewController, SFSpeechRecognizerDelegate {
 
+    // MARK: - Injected Dependencies
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var microphoneButton: UIButton!
-
     var viewModel: SpeechToTextViewModel!
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,6 +27,10 @@ class SpeechToTextViewController: CoordinatedViewController, SFSpeechRecognizerD
         // viewModel
         viewModel.setupSpeechRecognizer()
     }
+}
+
+// MARK: - User Interactions
+extension SpeechToTextViewController {
 
     @IBAction func microphoneTapped(_ sender: UIButton) {
         sender.animateTouchDown {

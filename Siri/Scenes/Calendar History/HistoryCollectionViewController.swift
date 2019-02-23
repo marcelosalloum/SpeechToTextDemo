@@ -10,11 +10,13 @@ import UIKit
 
 class HistoryCollectionViewController: CoordinatedViewController {
 
+    // MARK: - Injected Dependencies
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var rightBarButtonItem: UIBarButtonItem!
 
     var viewModel: HistoryViewModel!
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +25,7 @@ class HistoryCollectionViewController: CoordinatedViewController {
     }
 
     override func viewDidAppear(_ animated: Bool) {
+        // Selects middle cell (Today)
         if self.isBeingPresented || self.isMovingToParent {
             let middleIndex = Int(viewModel.days.count / 2)
             let indexPath = IndexPath(row: middleIndex, section: 0)
@@ -41,6 +44,7 @@ class HistoryCollectionViewController: CoordinatedViewController {
     }
 }
 
+// MARK: - DataSource
 extension HistoryCollectionViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return viewModel.days.count
@@ -55,6 +59,7 @@ extension HistoryCollectionViewController: UICollectionViewDataSource {
     }
 }
 
+// MARK: - Delegate
 extension HistoryCollectionViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
@@ -68,6 +73,7 @@ extension HistoryCollectionViewController: UICollectionViewDelegateFlowLayout {
         self.title = (viewModel.days[indexPath.row]).name
     }
 
+    // Used o the CollectionView behaves kind of like a Page view
     func scrollViewWillEndDragging(_ scrollView: UIScrollView,
                                    withVelocity velocity: CGPoint,
                                    targetContentOffset: UnsafeMutablePointer<CGPoint>) {
