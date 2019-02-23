@@ -21,6 +21,8 @@ class HistoryCollectionViewCell: UICollectionViewCell {
 
         tableView.delegate = self
         tableView.dataSource = self
+
+        NotificationCenter.default.addObserver(self, selector: #selector(updateContent), name: DefaultNotification.updateFoodDatabase, object: nil)
     }
 
     override func layoutSubviews() {
@@ -28,9 +30,13 @@ class HistoryCollectionViewCell: UICollectionViewCell {
         viewModel.updateFoodList()
     }
 
-    func updateContent() {
+    @objc func updateContent() {
         viewModel.updateFoodList()
         tableView.reloadData()
+    }
+
+    deinit {
+        NotificationCenter.default.removeObserver(self, name: DefaultNotification.updateFoodDatabase, object: nil)
     }
 }
 

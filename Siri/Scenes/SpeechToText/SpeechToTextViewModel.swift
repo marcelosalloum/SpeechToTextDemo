@@ -51,6 +51,7 @@ extension SpeechToTextViewModel {
 extension SpeechToTextViewModel {
     func closeButtonPressed() {
         localContext.saveContextToStore()
+        NotificationCenter.default.post(name: DefaultNotification.updateFoodDatabase, object: nil)
     }
 }
 
@@ -88,7 +89,7 @@ extension SpeechToTextViewModel {
 
     func verifyFoodCalories(_ text: String) {
 
-        APIService.verifyFoodCalories(text, context: ezCoreData.privateThreadContext) { result in
+        APIService.verifyFoodCalories(text, context: localContext) { result in
             switch result {
             case .success(let value):
                 guard let foodList = value else { return }
